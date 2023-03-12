@@ -123,3 +123,71 @@ function SetBarcodeHeight(height) {
   }
   JsBarcode('.barcode').init()
 }
+
+const tableHandler = {}
+tableHandler.drag = function () {
+  $('.newTable').each(function (index, el) {
+    const $dragArea = $(el)
+    // 是否為點擊狀態
+    let isDown = false
+    // 是否為移動狀態
+    let isMoved = false
+    // 起始 X 軸數值
+    let startX
+    // 卷軸數值
+    let scrollLeft
+
+    $dragArea.on('mousedown', function (event) {
+      if (fesdDB.is.isMobile4) return
+      event.preventDefault()
+      isMoved = false
+      isDown = true
+
+      startX = event.pageX - $dragArea.offset().left
+      scrollLeft = $dragArea.scrollLeft()
+      $dragArea.css('cursor', 'grabbing')
+      //   if ($dragArea.hasClass('draggable')) {
+      //   }
+    })
+
+    $dragArea.on('mouseleave', function () {
+      if (fesdDB.is.isMobile4) return
+      isMoved = false
+      isDown = false
+    })
+
+    $dragArea.on('mouseup', function (event) {
+      if (fesdDB.is.isMobile4) return
+      event.preventDefault()
+      isDown = false
+      $dragArea.css('cursor', 'grab')
+      //   if ($dragArea.hasClass('draggable')) {
+      //   }
+    })
+
+    $dragArea.on('mousemove', function (event) {
+      if (fesdDB.is.isMobile4) return
+      event.preventDefault()
+      isMoved = true
+      if (!isDown) return
+      const x = event.pageX - $dragArea.offset().left
+      const walk = (x - startX) * 3
+      $dragArea.scrollLeft(scrollLeft - walk)
+    })
+  })
+}
+tableHandler.listener = function () {
+  $.each($('.table-bordered'), function (index, value) {
+    const newTable = $('<div class="newTable"></div>')
+    $(this).before(newTable)
+    newTable.append($(this))
+  })
+}
+tableHandler.all = function () {
+  this.listener()
+  this.drag()
+}
+
+$(() => {
+  tableHandler.all()
+})

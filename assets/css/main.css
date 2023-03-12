@@ -158,3 +158,25 @@ input#inputTitle {
 .copyright {
   font-size: 12px;
 }
+.new-table {
+  -webkit-mask-image: linear-gradient(270deg, rgba(255, 255, 255, 0), #fff 5%, #fff 95%, rgba(255, 255, 255, 0));
+  mask-image: -webkit-gradient(
+    linear,
+    right top,
+    left top,
+    from(rgba(255, 255, 255, 0)),
+    color-stop(5%, #fff),
+    color-stop(95%, #fff),
+    to(rgba(255, 255, 255, 0))
+  );
+  overflow: auto;
+}
+.new-table > table {
+  width: max-content;
+  max-width: 1200px;
+}
+@media screen and (max-width: 768px) {
+  .form-box > .flex-box {
+    flex-direction: column;
+  }
+}
