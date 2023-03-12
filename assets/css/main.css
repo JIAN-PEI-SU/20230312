@@ -1,0 +1,157 @@
+@media print {
+  @page {
+    size: A4 portrait;
+  }
+
+  * {
+    color: #000 !important;
+    text-shadow: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    zoom: 0.98;
+  }
+
+  table {
+    border-collapse: collapse !important;
+    margin: 0;
+  }
+
+  table {
+    page-break-inside: auto;
+  }
+
+  tr {
+    page-break-inside: avoid !important;
+    page-break-after: auto;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+  svg > rect {
+    fill: #fff !important;
+  }
+  #header {
+    display: none;
+  }
+
+  #forms {
+    display: none;
+  }
+
+  #message {
+    display: none;
+  }
+
+  #noprint {
+    display: none;
+  }
+
+  footer {
+    display: none;
+  }
+}
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+}
+
+tr > th {
+  width: calc(100% / 3);
+}
+.printTitle {
+  letter-spacing: 3px;
+  color: #333;
+  margin: 30px auto 10px auto;
+}
+
+.form-control-lg {
+  text-align: center;
+}
+
+.btn-lg-bg {
+  color: #333;
+  border: 1px solid #f0efeb;
+  padding: 10px 50px;
+  border-radius: 0.5rem;
+  background: #f0efeb;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.btn-lg-bg:hover {
+  color: #f0efeb;
+  border: 1px solid #333;
+  background: #333;
+}
+
+th {
+  text-align: center;
+}
+
+td {
+  text-align: center;
+  vertical-align: middle !important;
+}
+body {
+  background: #f0efeb;
+}
+main {
+  max-width: 90%;
+  margin: auto;
+}
+.text-center {
+  text-align: center;
+}
+.flex-box {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.item {
+  flex: 1;
+  text-align: left;
+  color: #333;
+}
+/* 資料欄位 */
+.form-box {
+  margin-bottom: 30px;
+}
+.form-box > .flex-box {
+  padding: 30px;
+  border-radius: 0.5em;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  background: #fff;
+}
+
+/* 檔案選擇欄位 */
+fieldset.form-group {
+  border: 0;
+  padding: 0;
+}
+/* title 輸入框 */
+input#inputTitle {
+  width: 90%;
+  height: 2em;
+  border: 0;
+  border-bottom: 1px solid #9a9a9a;
+  text-align: left;
+}
+/* 高度欄位 */
+.form-group > .flex-box {
+  justify-content: flex-start;
+}
+
+.table-responsive {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+.table-responsive table {
+  width: 100%;
+}

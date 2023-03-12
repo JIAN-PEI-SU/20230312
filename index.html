@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JIAN PEI SU | BarCode List from Excel</title>
+    <link href="assets/images/favicon.ico" rel="shortcut icon" />
+    <meta property="og:site_name" content="JIAN PEI SU | BarCode List from Excel" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="JIAN PEI SU | BarCode List from Excel" />
+    <meta property="og:description" content="BarCode List from Excel" />
+    <meta property="og:image" content="https://jian-pei-su.github.io/portfolio/images/logo.webp" />
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<main>
+    <div id="header">
+        <div class="container">
+            <div class="jumbotron">
+                <h1 class="display-3">
+                    <a class="btn btn-link text-secondary p-0" href="" title="Barcode">
+                    <img id="logo" src="assets/images/sue.webp" alt="Link" width="80">
+                    </a>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div id="forms" class="form-box">
+            <div class="flex-box">
+                <div class="item">
+                    <i class="ti-paint-bucket text-primary h1"></i>
+                    <h3 class="mt-4 text-capitalize h5 ">Select file (Excel)</h3>
+                    <p class="regular text-muted"></p>
+                    <form id="fileForm" enctype="multipart/form-data">
+                        <fieldset class="form-group">
+                            <div class="form-group">
+                                <input id="uploadedFile" class="uploadedFile form-control-file" type=file name="file" accept=".xls,.xlsx" aria-describedby="fileHelp">
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="item">
+                    <i class="ti-shine text-primary h1"></i>
+                    <h3 class="mt-4 text-capitalize h5 ">Title</h3>
+                    <div class="form-group">
+                        <input id="inputTitle" class="form-control form-control-lg" type="text" placeholder="Title">
+                    </div>
+                </div>
+                <div class="item">
+                    <i class="ti-shine text-primary h1"></i>
+                    <h3 class="mt-4 text-capitalize h5 ">Code Height</h3>
+                    <div class="form-group">
+                        <div class="flex-box">
+                            <label class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="height" value="15" onchange="SetBarcodeHeight(this.value)">
+                                <span class="custom-control-label">矮</span>
+                            </label>
+                            <label class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="height" value="35" onchange="SetBarcodeHeight(this.value)" checked>
+                                <span class="custom-control-label">中</span>
+                            </label>
+                            <label class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="height" value="100" onchange="SetBarcodeHeight(this.value)">
+                                <span class="custom-control-label">高</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <i class="ti-thought text-primary h1"></i>
+                    <h3 class="mt-4 text-capitalize h5 ">Print</h3>
+                    <button type="button" class="btn btn-primary btn-lg btn-lg-bg" onclick="window.print();">Print</button>
+                </div>
+            </div>
+        </div>
+        <hr id="noprint">
+        <div class="results">
+            <div id="grid">
+                <div class="title text-center">
+                    <h1 id="printTitle" class="printTitle"></h1>
+                </div>
+                <div class="table-responsive">
+                    <table id="excelDataTable" class="table table-bordered"></table>
+                </div>
+                <div class="date text-center">
+                    <span id="date"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="copyright text-center">
+    <p>© 2023 All rights reserved. Design by Sue.</p>
+</footer>
+<script src="assets/js/jquery-3.4.1.slim.min.js"></script>
+<script src="assets/js/jszip.js"></script>
+<script src="assets/js/xlsx.js"></script>
+<script src="assets/js/JsBarcode.all.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
