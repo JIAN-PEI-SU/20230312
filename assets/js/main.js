@@ -1,3 +1,5 @@
+// pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js'
+
 //Name the list title
 const typeHandler = function (e) {
   document.getElementById('printTitle').innerHTML = e.target.value
@@ -48,9 +50,9 @@ class ExcelToJSON {
 
           const table = document.getElementById('excelDataTable')
           // select table data
-          const targetTDs = table.querySelectorAll('tr > td')
+          const targetTDs = table.querySelectorAll('tr > td:nth-child(2)')
           //   console.log(table)
-          //   console.log(targetTDs)
+          // console.log(targetTDs)
           // Chance first (All) column to svg image barcode
           for (let i = 0; i < targetTDs.length; i++) {
             const td = targetTDs[i]
@@ -61,7 +63,7 @@ class ExcelToJSON {
               '" jsbarcode-height="35" jsbarcode-width="2" jsbarcode-background="#f0efeb"</svg>'
             //id="barcode-' + td.innerHTML +'"
           }
-          //Init all barcode clases to
+          // Init all barcode clases to
           JsBarcode('.barcode').init()
         })
       }
@@ -124,6 +126,15 @@ function SetBarcodeHeight(height) {
   JsBarcode('.barcode').init()
 }
 
+// document.getElementById('save').addEventListener(
+//   'click',
+//   function () {
+//     tr.detach()
+//     var dataURL = stage.toDataURL({ pixelRatio: 1 })
+//     downloadURI(dataURL, 'label.png')
+//   },
+//   false
+// )
 const tableHandler = {}
 tableHandler.drag = function () {
   $('.newTable').each(function (index, el) {
@@ -138,7 +149,6 @@ tableHandler.drag = function () {
     let scrollLeft
 
     $dragArea.on('mousedown', function (event) {
-      if (fesdDB.is.isMobile4) return
       event.preventDefault()
       isMoved = false
       isDown = true
@@ -146,27 +156,20 @@ tableHandler.drag = function () {
       startX = event.pageX - $dragArea.offset().left
       scrollLeft = $dragArea.scrollLeft()
       $dragArea.css('cursor', 'grabbing')
-      //   if ($dragArea.hasClass('draggable')) {
-      //   }
     })
 
     $dragArea.on('mouseleave', function () {
-      if (fesdDB.is.isMobile4) return
       isMoved = false
       isDown = false
     })
 
     $dragArea.on('mouseup', function (event) {
-      if (fesdDB.is.isMobile4) return
       event.preventDefault()
       isDown = false
       $dragArea.css('cursor', 'grab')
-      //   if ($dragArea.hasClass('draggable')) {
-      //   }
     })
 
     $dragArea.on('mousemove', function (event) {
-      if (fesdDB.is.isMobile4) return
       event.preventDefault()
       isMoved = true
       if (!isDown) return
@@ -191,3 +194,17 @@ tableHandler.all = function () {
 $(() => {
   tableHandler.all()
 })
+
+// function exportAsPDF() {
+//   // Create a new PDF document
+//   let doc = new jsPDF()
+//   // Get HTML content of the page
+//   let html = document.querySelector('html').outerHTML
+//   // Convert HTML to PDF format
+//   doc.html(html, {
+//     callback: function () {
+//       // Save the PDF document
+//       doc.save('exported-page.pdf')
+//     },
+//   })
+// }
