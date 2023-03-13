@@ -14,7 +14,7 @@ if (localStorage.getItem('Title') != null) {
 }
 
 //Add date to bottom
-// document.getElementById('date').innerHTML = Date()
+document.getElementById('date').innerHTML = Date()
 
 //Excel barcode functions
 document.getElementById('uploadedFile').addEventListener('change', handleFileSelect, false)
@@ -180,3 +180,33 @@ $(() => {
   drag()
   listener()
 })
+
+// var doc = new jsPDF()
+// var specialElementHandlers = {
+//   '.results': function (element, renderer) {
+//     return true
+//   },
+// }
+// $('#save').click(function () {
+//   doc.fromHTML($('.results').html(), 15, 15, {
+//     width: 190,
+//     elementHandlers: specialElementHandlers,
+//   })
+//   doc.save('barcode.pdf')
+// })
+function saveAsPDF() {
+  // Choose the element id which you want to export.
+  var element = document.querySelector('.results')
+  // element.style.width = '700px'
+  // element.style.height = '900px'
+  var opt = {
+    margin: 0.5,
+    filename: 'file.pdf',
+    image: { type: 'jpeg', quality: 1 },
+    html2canvas: { scale: 1 },
+    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait', precision: '12' },
+  }
+
+  // choose the element and pass it to html2pdf() function and call the save() on it to save as pdf.
+  html2pdf().set(opt).from(element).save()
+}
