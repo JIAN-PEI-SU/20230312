@@ -1,5 +1,3 @@
-// pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js'
-
 //Name the list title
 const typeHandler = function (e) {
   document.getElementById('printTitle').innerHTML = e.target.value
@@ -126,17 +124,7 @@ function SetBarcodeHeight(height) {
   JsBarcode('.barcode').init()
 }
 
-// document.getElementById('save').addEventListener(
-//   'click',
-//   function () {
-//     tr.detach()
-//     var dataURL = stage.toDataURL({ pixelRatio: 1 })
-//     downloadURI(dataURL, 'label.png')
-//   },
-//   false
-// )
-const tableHandler = {}
-tableHandler.drag = function () {
+function drag() {
   $('.newTable').each(function (index, el) {
     const $dragArea = $(el)
     // 是否為點擊狀態
@@ -179,32 +167,16 @@ tableHandler.drag = function () {
     })
   })
 }
-tableHandler.listener = function () {
+
+function listener() {
   $.each($('.table-bordered'), function (index, value) {
     const newTable = $('<div class="newTable"></div>')
     $(this).before(newTable)
     newTable.append($(this))
   })
 }
-tableHandler.all = function () {
-  this.listener()
-  this.drag()
-}
 
 $(() => {
-  tableHandler.all()
+  drag()
+  listener()
 })
-
-// function exportAsPDF() {
-//   // Create a new PDF document
-//   let doc = new jsPDF()
-//   // Get HTML content of the page
-//   let html = document.querySelector('html').outerHTML
-//   // Convert HTML to PDF format
-//   doc.html(html, {
-//     callback: function () {
-//       // Save the PDF document
-//       doc.save('exported-page.pdf')
-//     },
-//   })
-// }

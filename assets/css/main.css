@@ -1,112 +1,11 @@
-@media print {
-  @page {
-    size: A4 portrait;
-  }
-
-  * {
-    color: #000 !important;
-    text-shadow: none !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    zoom: 0.98;
-  }
-
-  table {
-    border-collapse: collapse !important;
-    margin: 0;
-  }
-
-  table {
-    page-break-inside: auto;
-  }
-
-  tr {
-    page-break-inside: avoid !important;
-    page-break-after: auto;
-  }
-
-  thead {
-    display: table-header-group;
-  }
-  svg > rect {
-    fill: #fff !important;
-  }
-  #header {
-    display: none;
-  }
-
-  #forms {
-    display: none;
-  }
-
-  #message {
-    display: none;
-  }
-
-  #noprint {
-    display: none;
-  }
-
-  footer {
-    display: none;
-  }
-}
-tbody,
-td,
-tfoot,
-th,
-thead,
-tr {
-  border-color: inherit;
-  border-style: solid;
-  border-width: 0;
-}
-
-tr > th {
-  width: calc(100% / 3);
-  min-width: 10em;
-}
-.printTitle {
-  letter-spacing: 3px;
-  color: #333;
-  margin: 30px auto 10px auto;
-}
-
-.form-control-lg {
-  text-align: center;
-}
-
-.btn-lg-bg {
-  color: #333;
-  border: 1px solid #f0efeb;
-  padding: 10px 50px;
-  border-radius: 0.5rem;
-  background: #f0efeb;
-  transition: 0.5s;
-  cursor: pointer;
-}
-.btn-lg-bg:hover {
-  color: #f0efeb;
-  border: 1px solid #333;
-  background: #333;
-}
-
-th {
-  text-align: center;
-}
-
-td {
-  text-align: center;
-  vertical-align: middle !important;
-}
 body {
   background: #f0efeb;
 }
-main {
+body main {
   max-width: 90%;
   margin: auto;
 }
-.text-center {
+body .text-center {
   text-align: center;
 }
 .flex-box {
@@ -114,12 +13,11 @@ main {
   justify-content: center;
   align-items: flex-start;
 }
-.item {
+.flex-box .item {
   flex: 1;
   text-align: left;
   color: #333;
 }
-/* 資料欄位 */
 .form-box {
   margin-bottom: 30px;
 }
@@ -129,13 +27,10 @@ main {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   background: #fff;
 }
-
-/* 檔案選擇欄位 */
 fieldset.form-group {
   border: 0;
   padding: 0;
 }
-/* title 輸入框 */
 input#inputTitle {
   width: 90%;
   height: 2em;
@@ -144,11 +39,28 @@ input#inputTitle {
   border-bottom: 1px solid #9a9a9a;
   text-align: left;
 }
-/* 高度欄位 */
-.form-group > .flex-box {
+.form-group .flex-box {
   justify-content: flex-start;
 }
-
+.btn {
+  color: #333;
+  border: 1px solid #f0efeb;
+  padding: 10px 50px;
+  border-radius: 0.5rem;
+  background: #f0efeb;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.btn:hover {
+  color: #f0efeb;
+  border: 1px solid #333;
+  background: #333;
+}
+.printTitle {
+  letter-spacing: 3px;
+  color: #333;
+  margin: 30px auto 10px auto;
+}
 .table-responsive {
   width: 100%;
   max-width: 1200px;
@@ -156,9 +68,6 @@ input#inputTitle {
 }
 .table-responsive table {
   width: 100%;
-}
-.copyright {
-  font-size: 12px;
 }
 .newTable {
   -webkit-mask-image: linear-gradient(270deg, rgba(255, 255, 255, 0), #fff 5%, #fff 95%, rgba(255, 255, 255, 0));
@@ -174,18 +83,83 @@ input#inputTitle {
   overflow: auto;
 }
 .newTable > table {
+  width: -moz-max-content;
   width: max-content;
   max-width: 1200px;
   margin: auto;
 }
-
-table > :nth-child(3n + 2) > * {
+.newTable > table > :nth-child(3n + 2) > * {
   padding-top: 15px;
 }
-
-table > :nth-child(3n + 1) > * {
+.newTable > table > :nth-child(3n + 1) > * {
   border-width: 0 0 1px 0;
   padding-bottom: 15px;
+}
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+}
+tr > th {
+  width: 33.3333333333%;
+  min-width: 10em;
+  text-align: center;
+}
+td {
+  text-align: center;
+  vertical-align: middle !important;
+}
+.copyright {
+  font-size: 12px;
+}
+@media print {
+  @page {
+    size: A4 portrait;
+  }
+  * {
+    color: #000 !important;
+    text-shadow: none !important;
+    background: rgba(0, 0, 0, 0) !important;
+    box-shadow: none !important;
+    zoom: 0.98;
+  }
+  table {
+    border-collapse: collapse !important;
+    margin: 0;
+  }
+  table {
+    page-break-inside: auto;
+  }
+  tr {
+    page-break-inside: avoid !important;
+    page-break-after: auto;
+  }
+  thead {
+    display: table-header-group;
+  }
+  svg > rect {
+    fill: #fff !important;
+  }
+  #header {
+    display: none;
+  }
+  #forms {
+    display: none;
+  }
+  #message {
+    display: none;
+  }
+  #noprint {
+    display: none;
+  }
+  footer {
+    display: none;
+  }
 }
 @media screen and (max-width: 768px) {
   .form-box > .flex-box {
